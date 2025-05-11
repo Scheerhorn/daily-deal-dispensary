@@ -3,9 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fetch Deals From Supabase</title>
+    <title>Daily Deal Directory</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <div class="header">
+            <div class="heading">
+                <a href="index.html"><h1 class="homeButton">Daily Deal Directory</h1></a>
+                <div id="currentDate" class="currentDate"></div>
+            </div>
+            <nav>
+                <div class="navBar">
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                    <ul class="nav-menu">
+                        <li class="nav-item"><a href="#" class="nav-link">Specials</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Complete List</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Specials</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">About DDD</a></li>
+                    </ul>
+                    <input type="text" class="searchBar" placeholder="Search feature coming soon!">
+                </div>
+            </nav>
+        </div>
+    </header> 
+    <h2 id="currentDay"></h2>
     <ul id="deals-list"></ul>
 
 
