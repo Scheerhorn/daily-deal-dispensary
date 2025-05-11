@@ -6,6 +6,14 @@ const SUPABASE_URL = 'https://yweyhssxlblrvdfzvwfc.supabase.co'
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl3ZXloc3N4bGJscnZkZnp2d2ZjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY4MjMzODEsImV4cCI6MjA2MjM5OTM4MX0.fr6TPiK50Qdw0CNogv_N0bUyvwXOutBlRR3VZrpFT6U'
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY)
 
+const hamburger = document.querySelector(".hamburger")
+const navMenu = document.querySelector(".nav-menu")
+
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+})
+
 function getDistanceMiles(lat1, lon1, lat2, lon2) {
     const toRad = d => d * (Math.PI/180)
     const R = 6371  // km
@@ -75,6 +83,33 @@ function renderDeals(deals) {
             })
             .join('')
         : '<li>No deals for today.</li>'
-    }
+}
 
 loadDeals()
+
+function displayCurrentDate() {
+    const dateElement = document.getElementById("currentDate");
+    
+    // Get the current date
+    const now = new Date();
+    
+    // Array of days to get the correct day name
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    
+    // Format the date
+    const dayName = days[now.getDay()];
+    const formattedDate = now.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+    });
+
+    // Display the result
+    dateElement.textContent = `${dayName}, ${formattedDate}`;
+}
+
+// Run the function when the page loads
+window.onload = displayCurrentDate;
+
+document.getElementById('currentDay').textContent = `Deals for ${dayNames[today]}`;
+
