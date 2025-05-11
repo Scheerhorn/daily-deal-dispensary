@@ -1,0 +1,120 @@
+body {
+    background-color: #33cc33;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10%;
+    width: clamp(30vw, 50vw, 50vw);
+    font-size: 1.4rem;
+}
+
+
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+}
+
+.bar {
+    
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+}
+
+.searchBar {
+    background-color: #adebad;
+    width: 19vw;
+    min-width: 250px;
+    height: clamp(8px, 5vw, 40px);
+    border-radius: 12px;
+    font-size: 1.1em;
+}
+
+.homeButton {
+    color: #0f3d0f;
+    text-decoration: none;
+    font-size: clamp(5px, 13vw, 80px);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    text-decoration: underline purple solid 8%;
+}
+
+
+.homeButton:hover {
+    color: purple;
+    text-decoration: none;
+    text-decoration: underline purple solid 8%;
+}
+
+.currentDate {
+    text-align: center;
+    font-size: clamp(2px, 4vw, 30px);
+}
+
+
+.heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media(max-width:768px) {
+
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active {
+        .header {
+            position: fixed;
+        }
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #0f3d0f;
+        width: 80%;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .nav-item {
+        margin: 16px 0;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+}
